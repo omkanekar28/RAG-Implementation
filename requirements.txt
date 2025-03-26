@@ -1,1 +1,2 @@
 pandas==2.2.3
+faiss-cpu==1.10.0

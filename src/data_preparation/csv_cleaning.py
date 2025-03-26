@@ -38,6 +38,9 @@ class DatasetCleaner:
         print("Duplicate rows removed")
 
     def start_process(self) -> None:
+        """
+        Starts the dataset cleaning process.
+        """
         print("Starting dataset cleaning process")
         print(f"Dataset shape before cleaning: {self.cleaned_df.shape}")
         self.remove_unreleased()
@@ -51,6 +54,6 @@ class DatasetCleaner:
 if __name__ == "__main__":
     cleaner = DatasetCleaner(
         input_dataset_path="/home/omkanekar28/code/RAG-Implementation/data/movie_dataset.csv",
-        output_store_path="cleaned_movie_dataset.csv"
+        output_store_path="/home/omkanekar28/code/RAG-Implementation/data/cleaned_movie_dataset.csv"
     )
     cleaner.start_process()
