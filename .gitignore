@@ -1,5 +1,2 @@
 rag-venv
-docs
-*.csv
-data
 __pycache__
