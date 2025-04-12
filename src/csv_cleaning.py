@@ -13,7 +13,8 @@ class DatasetCleaner:
         self.input_df = pd.read_csv(input_dataset_path)
         print("Dataset loaded")
         self.cleaned_df = self.input_df.copy()
-        self.columns_to_remove = ["homepage", "id", "original_language", "original_title", "status", "vote_count", "crew"]
+        self.columns_to_remove = ["index", "homepage", "id", "original_language", "original_title", "status", 
+                                  "vote_count", "crew", "budget", "revenue", "vote_average", "popularity"]
         self.output_store_path = output_store_path
 
     def remove_unreleased(self) -> None:
@@ -36,6 +37,13 @@ class DatasetCleaner:
         """
         self.cleaned_df.drop_duplicates(inplace=True)
         print("Duplicate rows removed")
+
+    def remove_nan_values(self) -> None:
+        """
+        Removes all the rows that have NaN values in them.
+        """
+        self.cleaned_df.dropna(inplace=True)
+        print("NaN values removed")
 
     def start_process(self) -> None:
         """
