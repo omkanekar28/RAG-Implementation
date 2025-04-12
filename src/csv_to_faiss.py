@@ -3,6 +3,7 @@ import json
 import faiss
 import pandas as pd
 from sentence_transformers import SentenceTransformer
+from config import EMBEDDING_MODEL, INPUT_EXCEL_PATH, FAISS_STORE_DIR
 
 
 class FaissDatabaseCreator:
@@ -10,7 +11,7 @@ class FaissDatabaseCreator:
     A class to create the Faiss database for the recommendation system.
     """
 
-    def __init__(self, input_excel_path: str, embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2") -> None:
+    def __init__(self, input_excel_path: str, embedding_model: str) -> None:
         """
         Initializes the input data and embedding model.
         """
@@ -75,6 +76,7 @@ Runtime:- {round(int(df_row['runtime']) / 60, 1)} hours
 
 if __name__ == "__main__":
     database_creator = FaissDatabaseCreator(
-        input_excel_path="/home/omkanekar28/code/RAG-Implementation/data/cleaned_movie_dataset.csv"
+        input_excel_path=INPUT_EXCEL_PATH,
+        embedding_model=EMBEDDING_MODEL
     )
-    database_creator.create_faiss_database(store_dir="/home/omkanekar28/code/RAG-Implementation/data/faiss_store")
+    database_creator.create_faiss_database(store_dir=FAISS_STORE_DIR)
