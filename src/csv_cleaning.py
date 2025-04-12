@@ -1,4 +1,5 @@
 import pandas as pd
+from config import INPUT_RAW_EXCEL_PATH, INPUT_EXCEL_PATH
 
 
 class DatasetCleaner:
@@ -54,7 +55,7 @@ class DatasetCleaner:
 
 if __name__ == "__main__":
     cleaner = DatasetCleaner(
-        input_dataset_path="/home/omkanekar28/code/RAG-Implementation/data/movie_dataset.csv",
-        output_store_path="/home/omkanekar28/code/RAG-Implementation/data/cleaned_movie_dataset.csv"
+        input_dataset_path=INPUT_RAW_EXCEL_PATH,
+        output_store_path=INPUT_EXCEL_PATH
     )
     cleaner.start_process()
