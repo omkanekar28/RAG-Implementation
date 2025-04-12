@@ -30,6 +30,11 @@ class MovieRecommender:
         results["distance"] = distances[0]
         return results
 
+    def generate_response(self, recommendations: pd.DataFrame) -> str:
+        """
+        """
+        # TODO: Use LLM to generate a response based on the recommendations.
+
 
 if __name__ == "__main__":
     recommender = MovieRecommender(embedding_model=EMBEDDING_MODEL, faiss_store_dir=FAISS_STORE_DIR)

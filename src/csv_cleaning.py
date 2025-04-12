@@ -38,13 +38,6 @@ class DatasetCleaner:
         self.cleaned_df.drop_duplicates(inplace=True)
         print("Duplicate rows removed")
 
-    def remove_nan_values(self) -> None:
-        """
-        Removes all the rows that have NaN values in them.
-        """
-        self.cleaned_df.dropna(inplace=True)
-        print("NaN values removed")
-
     def start_process(self) -> None:
         """
         Starts the dataset cleaning process.
