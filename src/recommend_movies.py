@@ -20,7 +20,7 @@ class MovieRecommender:
         self.index = faiss.read_index(os.path.join(faiss_store_dir, "movies.index"))
         self.metadata = pd.read_pickle(os.path.join(faiss_store_dir, "movies_metadata.pkl"))
 
-    def get_recommendations(self, query: str, top_n: int = 5) -> pd.DataFrame:
+    def get_recommendations(self, query: str, top_n: int) -> pd.DataFrame:
         """
         Returns the top N movie recommendations based on the query.
         """
