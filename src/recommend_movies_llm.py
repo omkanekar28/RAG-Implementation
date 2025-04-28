@@ -9,9 +9,11 @@ from config import EMBEDDING_MODEL, FAISS_STORE_DIR, LLM_PATH
 
 class MovieRecommenderLLM(MovieRecommender):
     """
+    A class to recommend movies based on a query using FAISS, Sentence Transformers and a LLM.
     """
     def __init__(self, embedding_model: str, faiss_store_dir: str, model_path: str):
         """
+        Initializes the embedding model, the LLM and faiss index.
         """
         super().__init__(embedding_model=embedding_model, faiss_store_dir=faiss_store_dir)
         self.model_path = model_path
@@ -41,6 +43,7 @@ Distance from the query: {df_row['distance']}
     
     def get_recommendations_llm(self, query: str, top_n: int) -> str:
         """
+        Returns the top N movie recommendations based on the query using an LLM to give a human-like response.
         """
         movies_df = self.get_recommendations(query, top_n)
         movies = ""
