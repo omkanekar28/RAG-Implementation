@@ -58,7 +58,7 @@ Distance from the query: {df_row['distance']}
             context_window_size=1000 + (500 * len(movies_df)),    # 500 tokens for each movie and 1000 for the prompt
             max_tokens=100 * len(movies_df)    # 100 tokens for each movie
         )
-        print(f"Model loaded in {time.time() - model_loading_start_time:.2f} seconds.\n")
+        print(f"Model loaded in {time.time() - model_loading_start_time:.2f} seconds.")
         instruction_prompt = get_llm_prompt(
             user_description=query,
             movies=movies,
@@ -71,7 +71,7 @@ Distance from the query: {df_row['distance']}
         inference_start_time = time.time()
         print("Performing inference...")
         output = llm(messages)
-        print(f"LLM inference completed in {time.time() - inference_start_time:.2f} seconds.\n")
+        print(f"LLM inference completed in {time.time() - inference_start_time:.2f} seconds.")
         return output
 
 
@@ -85,4 +85,4 @@ if __name__ == "__main__":
     query = input("Enter a movie description for recommendations: ")
     number_of_recommendations = int(input("Enter the number of recommendations you want: "))
     response = recommender.get_recommendations_llm(query, top_n=number_of_recommendations)
-    print(response)
+    print(f"\n\nResponse:\n\n{response}")
