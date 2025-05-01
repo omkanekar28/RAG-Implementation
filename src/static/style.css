@@ -50,18 +50,16 @@ th, td {
     padding: 10px 50px;
     text-align: center;
 }
-
+.user-input {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    padding: 0px 50px;
+}
 #results-table td {
     background-color: #c5c5c5;
 }
 #results-table th {
     color: white;
     background-color: blue;
-}
-#results-table td {
-    background-color: #c5c5c5;
-}
-#results-table th {
-    color: white;
-    background-color: red;
 }

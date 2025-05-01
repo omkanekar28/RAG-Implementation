@@ -42,7 +42,10 @@ def recommend_movies_llm() -> str:
     if request.method == "POST":
         description = request.form.get("description")
         num_recommendations = int(request.form.get("num_recommendations"))
-        return render_template("display_results_llm.html", description=description)
+        recommender = MovieRecommenderLLM(embedding_model=EMBEDDING_MODEL, faiss_store_dir=FAISS_STORE_DIR, model_path=LLM_PATH)
+        response = recommender.get_recommendations_llm(query=description, top_n=num_recommendations)
+        response = response.replace("\n", "<br>")
+        return render_template("display_results_llm.html", description=description, response=response)
 
 if __name__ == "__main__":
     app.run(debug=True)

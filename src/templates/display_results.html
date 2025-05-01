@@ -3,6 +3,12 @@
 {% block page_header %}Results{% endblock %}
 
 {% block content %}
+    <div class="user-input">
+        <label>Your Movie Description:</label>
+        <p>{{ description }}</p>
+        <br><br>
+        <label>Recommendations:</label>
+    </div>
     <table id="results-table">
         <tr>
             <th>Movie Title</th>

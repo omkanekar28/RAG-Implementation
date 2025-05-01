@@ -3,16 +3,12 @@
 {% block page_header %}Results{% endblock %}
 
 {% block content %}
-    <table id="llm-results-table">
-        <tr>
-            <th>Movie Title</th>
-            <th>Distance</th>
-        </tr>
-        {% for title, distance in recommendations %}
-        <tr>
-            <td>{{ title }}</td>
-            <td>{{ distance }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="user-input">
+        <label>Your Movie Description:</label>
+        <p>{{ description }}</p>
+        <br><br>
+        <label>Recommendations:</label>
+        <br><br>
+        <p>{{ response|safe }}</p>
+    </div>
 {% endblock %}
