@@ -2,9 +2,9 @@
 
 This project implements a simple **Retrieval-Augmented Generation (RAG)** pipeline for recommending movies. The system retrieves relevant movie descriptions based on the users query.
 
-![Image not found!](https://github.com/omkanekar28/RAG-Implementation/raw/main/screenshots/home.png "Homepage")
-![Image not found!](https://github.com/omkanekar28/RAG-Implementation/raw/main/screenshots/recommend_movies.png "Recommend Movies Page")
-![Image not found!](https://github.com/omkanekar28/RAG-Implementation/raw/main/screenshots/recommend_movies_with_reasoning.png "Recommend Movies With Reasoning Page")
+![Image not found!](screenshots/home.png "Homepage")
+![Image not found!](screenshots/recommend_movies.png "Recommend Movies Page")
+![Image not found!](screenshots/recommend_movies_with_reasoning.png "Recommend Movies With Reasoning Page")
 
 ## 🚀 Features
 
