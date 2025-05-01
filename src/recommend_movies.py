@@ -28,6 +28,7 @@ class MovieRecommender:
         distances, indices = self.index.search(query_embedding, top_n)
         results = self.metadata.iloc[indices[0]].copy()
         results["distance"] = distances[0]
+        results.sort_values(by="distance",ascending=False , inplace=True)
         return results
 
 

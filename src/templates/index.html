@@ -4,4 +4,8 @@
 
 {% block content %}
     <p>This system provides personalized movie recommendations based on your preferences.</p>
+    <div class="action-buttons">
+        <a href="/recommend_movies"><button class="navigation-buttons">Recommend Movies</button></a>
+        <a href="/recommend_movies_llm"><button class="navigation-buttons">Recommend Movies (With Reasoning)</button></a>    
+    </div>
 {% endblock %}

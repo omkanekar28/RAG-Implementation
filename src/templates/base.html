@@ -8,6 +8,10 @@
 </head>
 <body>
     <a class="page-header" href="/">{% block page_header %}{% endblock %}</a>
-    {% block content %}{% endblock %}
+    <hr>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block page_title %}Recommend Movies (With Reasoning) | {% endblock %}
+{% block page_header %}Recommend Movies (With Reasoning){% endblock %}
+
+{% block content %}
+    <form action="/recommend_movies_llm" method="POST">
+        <label for="description">Movie Description:</label>
+        <br>
+        <textarea name="description" id="description" rows="4" cols="75" placeholder="e.g. I like action movies with lots of explosions." required></textarea>
+        <br><br>
+        <label for="num_recommendations">Number of Recommendations:</label>
+        <input type="number" name="num_recommendations" id="num_recommendations" min="1" max="10" value="5" required>
+        <br><br>
+        <button type="submit">Get Recommendations</button>
+    </form>
+{% endblock %}

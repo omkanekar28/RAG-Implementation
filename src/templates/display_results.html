@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block page_title %}Results | {% endblock %}
+{% block page_header %}Results{% endblock %}
+
+{% block content %}
+    <table id="results-table">
+        <tr>
+            <th>Movie Title</th>
+            <th>Distance</th>
+        </tr>
+        {% for title, distance in recommendations %}
+        <tr>
+            <td>{{ title }}</td>
+            <td>{{ distance }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
