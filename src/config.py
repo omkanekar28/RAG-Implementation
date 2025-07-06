@@ -1,5 +1,5 @@
 EMBEDDING_MODEL = "sentence-transformers/all-mpnet-base-v2"
-LLM_PATH = "models/qwen2.5-3b-instruct-q5_k_m.gguf"
+LLM_PATH = "models/Qwen3-0.6B-Q8_0.gguf"
 INPUT_RAW_EXCEL_PATH = "/path/to/movie_dataset.csv"
 INPUT_EXCEL_PATH = "/path/to/cleaned_movie_dataset.csv"
 FAISS_STORE_DIR = "faiss_store"

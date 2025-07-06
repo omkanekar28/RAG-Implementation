@@ -40,6 +40,20 @@ Runtime:- {round(int(df_row['runtime']) / 60, 1)} hours
 
 Distance from the query: {df_row['distance']}
 """
+
+    def format_llm_response(self, response: str) -> str:
+        """
+        Formats the response from the LLM by removing the <think> tag and returning the rest of the response.
+        """
+        try:
+            think_ending_index = response.find("</think>")
+            if think_ending_index == -1:
+                return "ERROR: Unexpected response format from LLM. Please check the model and the prompt!"
+            response = response[think_ending_index + 8:]
+            return response.strip()
+        except Exception as e:
+            print(f"Error formatting LLM response: {e}")
+            return "ERROR: Failed to format the response from the LLM. Please check the model and the prompt!"
     
     def get_recommendations_llm(self, query: str, top_n: int) -> str:
         """
@@ -51,12 +65,14 @@ Distance from the query: {df_row['distance']}
         for _, row in movies_df.iterrows():
             movies += "\n\n" + self.get_faiss_row_template(row)
 
+        print(f"Top {top_n} movies found based on the query: {query}")
+        print(f"Movies to be sent to the LLM:\n{movies}")
         model_loading_start_time = time.time()
         print("Loading the model...")
         llm = GGUFModelHandler(
             llm_checkpoint=self.model_path,
             context_window_size=1000 + (500 * len(movies_df)),    # 500 tokens for each movie and 1000 for the prompt
-            max_tokens=100 * len(movies_df)    # 100 tokens for each movie
+            max_tokens=1024 * len(movies_df)    # 1024 tokens for each movie
         )
         print(f"Model loaded in {time.time() - model_loading_start_time:.2f} seconds.")
         instruction_prompt = get_llm_prompt(
@@ -71,6 +87,9 @@ Distance from the query: {df_row['distance']}
         inference_start_time = time.time()
         print("Performing inference...")
         output = llm(messages)
+        print("Raw Response from LLM:")
+        print(output)
+        output = self.format_llm_response(output)
         print(f"LLM inference completed in {time.time() - inference_start_time:.2f} seconds.")
         return output
 
